@@ -11,10 +11,7 @@ import (
 func main() {
 	router := gin.Default()
 	models.ConnectDatabase()
-	router.Use(cors.New(cors.Config{
-		AllowAllOrigins: true,
-		AllowMethods:    []string{"PUT", "PATCH", "GET", "DELETE", "POST"},
-	}))
+	router.Use(cors.Default())
 	router.GET("/product", controller.GetProduct)
 	router.POST("/product", controller.CreateProduct)
 	router.PATCH("/product/:id", controller.UpdateProduct)
