@@ -44,7 +44,7 @@ func GetProduct(c *gin.Context) {
 	}
 	models.DB.Where(&models.Product{
 		ID: uint(id),
-	}).Find(&prodcuts)
+	}).Order("quantity asc").Find(&prodcuts)
 	c.IndentedJSON(http.StatusOK, prodcuts)
 }
 
